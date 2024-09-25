@@ -35,7 +35,7 @@ class Department(db.Model):
 class Employee(db.Model):
     '''Employee Model'''
 
-    __tablename__ = 'workers'
+    __tablename__ = 'employees'
 
     def __repr__(self):
         """show info about post"""
@@ -82,6 +82,6 @@ class EmployeeProject(db.Model):
 
     __tablename__ = 'employees_projects'
 
-    # emp_id = db.Column(db.Integer, db.ForeignKey('employees.id'), primary_key=True)
+    emp_id = db.Column(db.Integer, db.ForeignKey('employees.id'), primary_key=True)
     proj_code = db.Column(db.Text, db.ForeignKey('projects.proj_code'), primary_key=True)
     role = db.Column(db.Text, nullable=True)

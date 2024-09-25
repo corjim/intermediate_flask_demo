@@ -16,7 +16,7 @@ connect_db(app)
 app.config['SECRET_KEY'] = "HeIsTheAlpha"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
-db.drop_pp()
+db.drop_all()
 db.create_all()
 
 
