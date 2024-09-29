@@ -48,40 +48,29 @@ class Employee(db.Model):
     state = db.Column(db.Text, nullable=False, default="AR")
     dept_code = db.Column(db.Text, db.ForeignKey('departments.dept_code'))
 
-    # dept = db.relationship('Department', backref='employees')
+    dept = db.relationship('Department', backref='employees')
 
     # assignments = db.relationship("EmployeeProject", backref='employee')                                       
-
-    projects = db.relationship('Projects', secondary='employes_projects', backref='employees')
+    # projects = db.relationship('Projects', secondary='employes_projects', backref='employees')
 
 
 # Employee.dept.dept_name  // 'Marketing' // relates the feature of the other table to the other one.
 
 
-class Project(db.Model):
+# class Project(db.Model):
 
-    __tablename__ = 'projects'
+#     __tablename__ = 'projects'
 
-    proj_code = db.Column(db.Text, primary_key=True)
-    proj_name = db.Column(db.Text, nullable=False, unique=True)
+#     proj_code = db.Column(db.Text, primary_key=True)
+#     proj_name = db.Column(db.Text, nullable=False, unique=True)
 
-    assignments = db.relationship('EmployeeProject', backref='project')
-
-
-class Project(db.Model):
-
-    __tablename__ = 'projects'
-
-    proj_code = db.Column(db.Text, primary_key=True)
-    proj_name = db.Column(db.Text, nullable=False, unique=True)
-
-    assignments = db.relationship('EmployeeProject', backref='project')
+#     assignments = db.relationship('EmployeeProject', backref='project')
 
 
-class EmployeeProject(db.Model):
+# class EmployeeProject(db.Model):
 
-    __tablename__ = 'employees_projects'
+#     __tablename__ = 'employees_projects'
 
-    emp_id = db.Column(db.Integer, db.ForeignKey('employees.id'), primary_key=True)
-    proj_code = db.Column(db.Text, db.ForeignKey('projects.proj_code'), primary_key=True)
-    role = db.Column(db.Text, nullable=True)
+#     emp_id = db.Column(db.Integer, db.ForeignKey('employees.id'), primary_key=True)
+#     proj_code = db.Column(db.Text, db.ForeignKey('projects.proj_code'), primary_key=True)
+#     role = db.Column(db.Text, nullable=True)
